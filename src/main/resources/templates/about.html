@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+
+<!-- Override head fragment -->
+<th:block layout:fragment="head">
+  <!-- About page specific head content -->
+  <title>About Tunde Obi</title>
+  <!-- Add any additional <meta>, <link>, or <style> tags here if needed -->
+</th:block>
+
+<!-- Override content fragment -->
+<div layout:fragment="content">
+  <!-- Page Header -->
+  <header class="bg-primary text-white py-16 pt-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">About Tunde Obi</h1>
+      <p class="text-xl max-w-3xl mx-auto">Minister, author, and professional committed to inspiring spiritual growth and excellence in every sphere of life</p>
+    </div>
+  </header>
+
+  <!-- Author Bio Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/3">
+          <img th:src="@{/images/tunde-profile.jpg}" alt="Tunde Obi" class="rounded-lg shadow-xl mx-auto"/>
+        </div>
+        <div class="md:w-2/3">
+          <h2 class="text-3xl font-bold text-primary mb-6">My Story</h2>
+          <p class="text-lg text-gray-700 mb-6">
+            I am a devoted minister of the gospel, known for my unwavering passion for living and teaching the Word of God. My pastoral journey began in January 2006 when I led a campus fellowship during my university years, and by April 2012, I was ordained into the pastoral ministry. I currently serve at Enthronement House Christian Centre.
+          </p>
+          <p class="text-lg text-gray-700 mb-6">
+            In August 2016, I graduated with distinction from The Redeemed Christian Bible College, earning an Advanced Diploma in Christian Leadership—a testament to my dedication to ministry and spiritual growth. Beyond the pulpit, I am a seasoned professional in the corporate world with over 14 years of experience in internal audit across finance, insurance, telecoms, and other sectors. My expertise has been pivotal in uncovering fraud, recovering losses, and strengthening governance in multinational corporations.
+          </p>
+          <p class="text-lg text-gray-700 mb-6">
+            I'm married to Oluwabukunola and blessed with our daughter, Joy Araoluwa. As a devoted husband, father, and servant of God, I'm passionate about advancing the agendas of the Kingdom of God, striving to collaborate with like-minded and spirit-filled believers to fulfill God's purposes, bringing the same dedication and integrity to every sphere of my life—family, ministry, and career.
+          </p>
+          <div class="flex gap-4 mt-8">
+            <a th:href="@{/books}" class="inline-block px-6 py-3 bg-secondary text-white rounded-full hover:bg-primary transition-all duration-300">View My Books</a>
+            <a th:href="@{/contact}" class="inline-block px-6 py-3 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Books Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary mb-12 text-center">Published Works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Book 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <img th:src="@{/images/dear-young-believer.png}" alt="Dear Young Believer" class="w-full h-72 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary mb-2">Dear Young Believer</h3>
+            <p class="text-gray-600 mb-4">A transformative guide crafted to empower young Christians as they journey through faith, identity, and purpose.</p>
+            <a th:href="@{/books}" class="text-secondary hover:text-primary font-medium">Learn more →</a>
+          </div>
+        </div>
+        <!-- Book 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <img th:src="@{/images/chronicles-of-meditation.png}" alt="The Chronicles of Meditation" class="w-full h-72 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary mb-2">The Chronicles of Meditation</h3>
+            <p class="text-gray-600 mb-4">A contextual study exploring the 27 instances of meditation in the Bible, revealing how meditation transforms daily life and deepens faith.</p>
+            <a th:href="@{/books}" class="text-secondary hover:text-primary font-medium">Learn more →</a>
+          </div>
+        </div>
+        <!-- Book 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <img th:src="@{/images/chapters-of-meditation.png}" alt="Chapters of Meditation 1.0" class="w-full h-72 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary mb-2">Chapters of Meditation 1.0</h3>
+            <p class="text-gray-600 mb-4">Practical insights and actionable steps for incorporating meditation into your spiritual routine.</p>
+            <a th:href="@{/books}" class="text-secondary hover:text-primary font-medium">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Experience -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 order-2 lg:order-1">
+          <h2 class="text-3xl font-bold text-primary mb-6">Professional Background</h2>
+          <p class="text-lg text-gray-700 mb-4">
+            With over 14 years in the corporate world, I've developed extensive expertise in internal audit across multiple sectors including finance, insurance, and telecommunications.
+          </p>
+          <p class="text-lg text-gray-700 mb-4">
+            My professional work focuses on:
+          </p>
+          <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+            <li>Uncovering fraud and implementing preventative measures</li>
+            <li>Recovering financial losses for organizations</li>
+            <li>Strengthening governance structures in multinational corporations</li>
+            <li>Developing and implementing audit frameworks and controls</li>
+            <li>Mentoring professionals in ethical business practices</li>
+          </ul>
+          <p class="text-lg text-gray-700 mb-4">
+            I believe in bringing the same commitment to excellence that defines my spiritual endeavors into my professional work, creating an integrated approach to leadership and service.
+          </p>
+        </div>
+        <div class="lg:w-1/2 order-1 lg:order-2 flex justify-center">
+          <div class="relative">
+            <div class="absolute inset-0 bg-secondary opacity-10 rounded-xl transform rotate-3"></div>
+            <img th:src="@{/images/tunde-profile.jpg}" alt="Tunde Obi Professional" class="relative z-10 rounded-xl shadow-lg"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ministry Vision -->
+  <section class="py-16 bg-gradient-to-br from-primary to-blue-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-8">My Ministry Vision</h2>
+      <p class="text-xl max-w-4xl mx-auto mb-12">
+        To equip believers with biblical wisdom and practical tools that enable them to walk in spiritual maturity, fulfill their God-given purpose, and influence every sphere of society with godly principles.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-book-reader text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Biblical Teaching</h3>
+          <p class="text-blue-100">Providing sound doctrine and practical application of God's Word for everyday living.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-hands-helping text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Discipleship</h3>
+          <p class="text-blue-100">Mentoring the next generation of believers to walk in spiritual maturity and purpose.</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-xl backdrop-blur-sm">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-globe-africa text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Kingdom Influence</h3>
+          <p class="text-blue-100">Empowering believers to represent Christ with excellence in their various fields.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Interests -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary mb-10 text-center">Beyond the Ministry</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex items-start space-x-4">
+          <div class="bg-gray-100 rounded-full p-4">
+            <i class="fas fa-hockey-puck text-secondary text-xl"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">Sports Enthusiast</h3>
+            <p class="text-gray-700">I enjoy watching hockey and basketball in my leisure time, appreciating the strategy, teamwork, and excellence displayed in these sports.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="bg-gray-100 rounded-full p-4">
+            <i class="fas fa-chess-knight text-secondary text-xl"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">Chess Player</h3>
+            <p class="text-gray-700">Chess is one of my favorite pastimes, as it challenges strategic thinking and foresight—skills that transfer to both ministry and professional life.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="bg-gray-100 rounded-full p-4">
+            <i class="fas fa-users text-secondary text-xl"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">Mentoring</h3>
+            <p class="text-gray-700">I am passionate about mentoring young believers, helping them navigate the complexities of faith, career, and purpose in today's world.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="bg-gray-100 rounded-full p-4">
+            <i class="fas fa-home text-secondary text-xl"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">Family Time</h3>
+            <p class="text-gray-700">I cherish quality time with my wife Oluwabukunola and our daughter Joy Araoluwa, believing that a strong family foundation supports effective ministry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-primary mb-6">Connect With Me</h2>
+      <p class="text-xl text-gray-600 mb-8">Whether you're interested in booking me for speaking engagements, seeking mentoring, or simply want to learn more about my books and ministry, I'd love to hear from you.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a th:href="@{/contact}" class="inline-block px-8 py-4 bg-secondary text-white rounded-full hover:bg-primary transition-all duration-300 shadow-md">Contact Me</a>
+        <a th:href="@{/books}" class="inline-block px-8 py-4 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300">Explore My Books</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Override scripts fragment -->
+<th:block layout:fragment="scripts">
+  <!-- About page specific scripts -->
+  <!-- Add any additional <script> tags here if needed -->
+</th:block>
+</html>

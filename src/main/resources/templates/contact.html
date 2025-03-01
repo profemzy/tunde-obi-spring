@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+
+<!-- Override head fragment -->
+<th:block layout:fragment="head">
+  <!-- Contact page specific head content -->
+  <title>Contact - Tunde Obi</title>
+  <!-- Add any additional <meta>, <link>, or <style> tags here if needed -->
+</th:block>
+
+<!-- Override content fragment -->
+<div layout:fragment="content">
+  <!-- Page Header -->
+  <header class="bg-primary text-white py-16 pt-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Me</h1>
+      <p class="text-xl max-w-3xl mx-auto">Questions, speaking inquiries, or book orders? I'd love to hear from you.</p>
+    </div>
+  </header>
+
+  <!-- Contact Form Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Information -->
+        <div>
+          <h2 class="text-3xl font-bold text-primary mb-8">Get In Touch</h2>
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="bg-secondary rounded-full p-3 text-white">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-primary mb-1">Email</h3>
+                <p class="text-gray-700">contact@tundeobi.com</p>
+                <p class="text-gray-600 text-sm mt-1">For general inquiries and speaking engagements</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="bg-secondary rounded-full p-3 text-white">
+                <i class="fas fa-church"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-primary mb-1">Ministry Office</h3>
+                <p class="text-gray-700">Enthronement House Christian Centre</p>
+                <p class="text-gray-600 text-sm mt-1">For ministry-related inquiries</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="bg-secondary rounded-full p-3 text-white">
+                <i class="fas fa-book"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-primary mb-1">Book Orders</h3>
+                <p class="text-gray-700">orders@tundeobi.com</p>
+                <p class="text-gray-600 text-sm mt-1">For bulk book orders and speaking materials</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="bg-secondary rounded-full p-3 text-white">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-primary mb-1">Location</h3>
+                <p class="text-gray-700">Lagos, Nigeria</p>
+                <p class="text-gray-600 text-sm mt-1">Available for events nationwide and internationally</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10">
+            <h3 class="text-xl font-semibold text-primary mb-4">Connect With Me</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="bg-gray-200 hover:bg-secondary text-gray-700 hover:text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="bg-gray-200 hover:bg-secondary text-gray-700 hover:text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+              <a href="#" class="bg-gray-200 hover:bg-secondary text-gray-700 hover:text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="bg-gray-200 hover:bg-secondary text-gray-700 hover:text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Contact Form -->
+        <div class="bg-gray-50 rounded-xl shadow-md p-8">
+          <h2 class="text-2xl font-bold text-primary mb-6">Send a Message</h2>
+          <form th:action="@{/send-message}" method="post" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300"/>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300"/>
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+              <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300">
+                <option value="general">General Inquiry</option>
+                <option value="speaking">Speaking Engagement</option>
+                <option value="books">Book Order</option>
+                <option value="mentoring">Mentoring Request</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+              <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all duration-300"></textarea>
+            </div>
+            <div class="flex items-start">
+              <input type="checkbox" id="newsletter" name="newsletter" class="mt-1"/>
+              <label for="newsletter" class="ml-2 text-gray-700">Subscribe to my newsletter for updates on new books, ministry events, and speaking engagements</label>
+            </div>
+            <button type="submit" class="w-full px-6 py-3 bg-secondary text-white rounded-lg hover:bg-primary transition-all duration-300 font-medium text-lg">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speaking Engagements -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary mb-10 text-center">Speaking Engagements</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 bg-primary flex items-center justify-center text-white">
+            <i class="fas fa-church text-6xl opacity-20"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary mb-2">Church Events</h3>
+            <p class="text-gray-700 mb-4">Available for Sunday services, conferences, youth programs, and leadership retreats.</p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Biblical teaching</li>
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Youth empowerment</li>
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Leadership training</li>
+            </ul>
+            <a href="#contact-form" class="text-secondary hover:text-primary font-medium">Inquire about availability →</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 bg-secondary flex items-center justify-center text-white">
+            <i class="fas fa-users text-6xl opacity-20"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary mb-2">Corporate Settings</h3>
+            <p class="text-gray-700 mb-4">Drawing from my corporate background, I offer tailored talks on integrity, leadership, and purpose in professional environments.</p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Ethical leadership</li>
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Work-life integration</li>
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Purpose-driven career</li>
+            </ul>
+            <a href="#contact-form" class="text-secondary hover:text-primary font-medium">Inquire about availability →</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="h-48 bg-gray-700 flex items-center justify-center text-white">
+            <i class="fas fa-book-open text-6xl opacity-20"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-primary mb-2">Workshops & Seminars</h3>
+            <p class="text-gray-700 mb-4">Interactive sessions on meditation, spiritual growth, and biblical application for today's challenges.</p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Biblical meditation</li>
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Spiritual disciplines</li>
+              <li class="flex items-center"><i class="fas fa-check text-secondary mr-2"></i> Faith and daily life</li>
+            </ul>
+            <a href="#contact-form" class="text-secondary hover:text-primary font-medium">Inquire about availability →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary mb-10 text-center">What Event Organizers Say</h2>
+      <div class="relative">
+        <div class="absolute -inset-x-4 top-0 bottom-0 bg-secondary opacity-5 rounded-3xl transform -rotate-1"></div>
+        <div class="relative space-y-8 py-6 px-4 md:px-10">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <p class="text-gray-700 italic mb-4">"Tunde's session on biblical meditation at our church retreat was transformative. His ability to make ancient practices relevant to modern life captivated our congregation. We've seen lasting impact in how people approach their quiet time with God."</p>
+            <div class="flex items-center">
+              <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mr-3">J</div>
+              <div>
+                <p class="font-semibold text-primary">Pastor James Adeyemi</p>
+                <p class="text-sm text-gray-500">Grace Fellowship Church</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <p class="text-gray-700 italic mb-4">"We invited Tunde to speak at our corporate leadership summit about integrity in the workplace. His unique perspective as both a minister and experienced corporate professional provided valuable insights that resonated with our executives."</p>
+            <div class="flex items-center">
+              <div class="bg-secondary w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mr-3">S</div>
+              <div>
+                <p class="font-semibold text-primary">Sarah Okonkwo</p>
+                <p class="text-sm text-gray-500">Chief HR Officer, TechGlobal Ltd</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <p class="text-gray-700 italic mb-4">"Tunde's workshop on 'Dear Young Believer' at our university ministry was exceptional. Students were engaged, challenged, and equipped with practical tools for their faith journey. His ability to connect with young adults is remarkable."</p>
+            <div class="flex items-center">
+              <div class="bg-green-600 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mr-3">M</div>
+              <div>
+                <p class="font-semibold text-primary">Michael Ekundayo</p>
+                <p class="text-sm text-gray-500">Campus Ministry Coordinator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary mb-10 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold text-primary mb-2">What topics do you typically speak on?</h3>
+          <p class="text-gray-700">
+            My speaking topics include biblical meditation, spiritual growth, faith for young believers, integrity in the workplace, purpose-driven living, and leadership from a biblical perspective. I can also develop custom messages tailored to your specific event theme.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold text-primary mb-2">Do you offer mentoring or counseling services?</h3>
+          <p class="text-gray-700">
+            Yes, I provide mentoring to young believers and professionals seeking to integrate their faith with their career and life purpose. Due to time constraints, I offer structured mentoring programs rather than one-off sessions. Please contact me for more details.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold text-primary mb-2">How can I order your books in bulk for my organization?</h3>
+          <p class="text-gray-700">
+            Bulk orders are available at discounted rates for churches, schools, and organizations. Please contact orders@tundeobi.com with details about which book(s) you're interested in and the quantity needed. We can also arrange for signed copies for special events.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold text-primary mb-2">How far in advance should I book you for speaking engagements?</h3>
+          <p class="text-gray-700">
+            For optimal scheduling, I recommend booking 3-6 months in advance, especially for weekend events. However, I understand that needs sometimes arise unexpectedly, so please don't hesitate to reach out even for shorter notice requests. I'll do my best to accommodate your event if my schedule permits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-16 bg-primary text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Join My Newsletter</h2>
+      <p class="text-xl mb-8">Stay updated with new book releases, upcoming speaking events, and spiritual encouragement</p>
+      <form th:action="@{/subscribe}" method="post" class="flex flex-col md:flex-row gap-4 justify-center">
+        <input type="email" name="email" placeholder="Your Email Address" required class="px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary w-full md:w-auto flex-grow max-w-md text-gray-800"/>
+        <button type="submit" class="px-8 py-4 bg-secondary rounded-full hover:bg-blue-600 transition-all duration-300 text-white font-medium">Subscribe</button>
+      </form>
+      <p class="mt-4 text-sm text-blue-200">I respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </section>
+</div>
+
+<!-- Override scripts fragment -->
+<th:block layout:fragment="scripts">
+  <!-- Contact page specific scripts -->
+  <!-- Add any additional <script> tags here if needed -->
+</th:block>
+</html>

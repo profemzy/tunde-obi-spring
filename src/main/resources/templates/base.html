@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title} ?: 'Default Title'">Default Title</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" th:href="@{/css/custom.css}">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2c3e50',
+            secondary: '#3498db',
+          }
+        }
+      }
+    }
+  </script>
+  <th:block layout:fragment="head"></th:block>
+</head>
+<body class="bg-gray-100 text-gray-800">
+<!-- Navigation -->
+<nav class="bg-white shadow-md fixed w-full top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex justify-between items-center">
+      <a th:href="@{/}" class="text-2xl font-bold text-primary">Tunde Obi</a>
+      <ul class="hidden md:flex space-x-8">
+        <li>
+          <a th:href="@{/}"
+             class="font-medium transition-all duration-300 nav-link"
+             th:classappend="${title == 'Tunde Obi - Official Website' || title == 'Author Name - Official Website'} ? 'text-secondary' : 'text-gray-700 hover:text-secondary'">
+            Home
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/books}"
+             class="font-medium transition-all duration-300 nav-link"
+             th:classappend="${title == 'Books - Tunde Obi'} ? 'text-secondary' : 'text-gray-700 hover:text-secondary'">
+            Books
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/about}"
+             class="font-medium transition-all duration-300 nav-link"
+             th:classappend="${title == 'About - Tunde Obi'} ? 'text-secondary' : 'text-gray-700 hover:text-secondary'">
+            About
+          </a>
+        </li>
+        <li>
+          <a th:href="@{/contact}"
+             class="font-medium transition-all duration-300 nav-link"
+             th:classappend="${title == 'Contact - Tunde Obi'} ? 'text-secondary' : 'text-gray-700 hover:text-secondary'">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-gray-700 hover:text-secondary">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pt-2 pb-4 shadow-inner">
+    <a th:href="@{/}" class="block py-2" th:classappend="${title == 'Tunde Obi - Official Website'} ? 'text-primary font-medium' : 'text-gray-700 hover:text-secondary'">Home</a>
+    <a th:href="@{/books}" class="block py-2" th:classappend="${title == 'Books - Tunde Obi'} ? 'text-primary font-medium' : 'text-gray-700 hover:text-secondary'">Books</a>
+    <a th:href="@{/about}" class="block py-2" th:classappend="${title == 'About - Tunde Obi'} ? 'text-primary font-medium' : 'text-gray-700 hover:text-secondary'">About</a>
+    <a th:href="@{/contact}" class="block py-2" th:classappend="${title == 'Contact - Tunde Obi'} ? 'text-primary font-medium' : 'text-gray-700 hover:text-secondary'">Contact</a>
+  </div>
+</nav>
+
+<!-- Main content -->
+<div layout:fragment="content">
+  <!-- Content will be replaced by child templates -->
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <a th:href="@{/}" class="text-2xl font-bold text-white">Tunde Obi</a>
+        <p class="mt-4 text-gray-400 max-w-xs">Creating worlds and characters that stay with you long after you close the book.</p>
+        <div class="mt-6 flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-secondary transition-all duration-300"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-secondary transition-all duration-300"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-gray-400 hover:text-secondary transition-all duration-300"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-secondary transition-all duration-300"><i class="fas fa-book-open"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a th:href="@{/}" class="text-gray-400 hover:text-white transition-all duration-300">Home</a></li>
+          <li><a th:href="@{/books}" class="text-gray-400 hover:text-white transition-all duration-300">Books</a></li>
+          <li><a th:href="@{/about}" class="text-gray-400 hover:text-white transition-all duration-300">About</a></li>
+          <li><a th:href="@{/contact}" class="text-gray-400 hover:text-white transition-all duration-300">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-3">
+            <i class="fas fa-envelope mt-1 text-secondary"></i>
+            <span class="text-gray-400"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82e6f2f3efe8f5c2e7fae3eff2eee7ace1edef">[email&#160;protected]</a></span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-phone-alt mt-1 text-secondary"></i>
+            <span class="text-gray-400">Literary Agent: (555) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fas fa-map-marker-alt mt-1 text-secondary"></i>
+            <span class="text-gray-400">New York, NY</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-12 pt-8 text-center md:flex md:justify-between md:text-left">
+      <p class="text-gray-400">© 2025 Tunde Obi. All rights reserved.</p>
+      <div class="mt-4 md:mt-0">
+        <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 mr-6">Privacy Policy</a>
+        <a href="#" class="text-gray-400 hover:text-white transition-all duration-300">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+  document.getElementById('mobile-menu-button').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+<th:block layout:fragment="scripts"></th:block>
+</body>
+</html>

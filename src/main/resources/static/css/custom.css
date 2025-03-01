@@ -1,0 +1,54 @@
+/* Custom CSS to supplement Tailwind */
+
+/* Navigation link hover effect */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* For book card image hover zoom effect */
+@keyframes subtle-zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.bg-white:hover img {
+    animation: subtle-zoom 0.5s forwards;
+}
+
+/* Custom focus styles for form elements */
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+/* Make sure Font Awesome icons are properly aligned */
+.fas, .fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .text-4xl {
+        font-size: 2.25rem;
+    }
+}
